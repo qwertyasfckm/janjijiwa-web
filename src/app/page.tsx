@@ -1,25 +1,11 @@
-import Image from "next/image";
 import { Coffee, Award, Users, MapPin, ArrowRight } from "lucide-react";
 import HeroCarousel from "@/components/HeroCarousel";
+import Header from "@/components/Header";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-white text-[#222222]">
-      {/* Header / Navbar */}
-      <header className="sticky top-0 z-50 bg-white/70 backdrop-blur-xl backdrop-saturate-150 border-b border-black/5 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            <a href="/" className="flex items-center">
-              <img src="/Jiwa-Group-Logo_JJ-PURPLE.png" alt="Jiwa Group Logo" className="h-9 w-auto object-contain" />
-            </a>
-            <nav className="hidden md:flex gap-8 ml-auto">
-              <a href="#cerita" className="text-sm font-bold text-[#222222] hover:text-[#FF3548] uppercase tracking-wide transition-colors">Brand Kami</a>
-              <a href="#menu" className="text-sm font-bold text-[#222222] hover:text-[#FF3548] uppercase tracking-wide transition-colors">Produk Kami</a>
-              <a href="#berita" className="text-sm font-bold text-[#222222] hover:text-[#FF3548] uppercase tracking-wide transition-colors">Berita Terkini</a>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       {/* Hero Section Carousel */}
       <HeroCarousel />
