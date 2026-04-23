@@ -1,101 +1,76 @@
 import Image from "next/image";
 import { Coffee, Award, Users, MapPin, ArrowRight } from "lucide-react";
+import HeroCarousel from "@/components/HeroCarousel";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#FDFBF7] text-[#3D2C23]">
+    <div className="min-h-screen bg-white text-[#222222]">
       {/* Header / Navbar */}
-      <header className="sticky top-0 z-50 bg-[#FDFBF7]/90 backdrop-blur-md border-b border-[#E6D5C3]">
+      <header className="sticky top-0 z-50 bg-white/70 backdrop-blur-xl backdrop-saturate-150 border-b border-black/5 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-[#8E5E3D] rounded-full flex items-center justify-center">
-                <Coffee className="text-white w-6 h-6" />
-              </div>
-              <span className="text-2xl font-bold tracking-tight text-[#3D2C23]">Janji Jiwa</span>
-            </div>
-            <nav className="hidden md:flex gap-8">
-              <a href="#cerita" className="text-[#6B503D] hover:text-[#8E5E3D] font-medium transition-colors">Cerita Kami</a>
-              <a href="#menu" className="text-[#6B503D] hover:text-[#8E5E3D] font-medium transition-colors">Produk Kami</a>
-              <a href="#berita" className="text-[#6B503D] hover:text-[#8E5E3D] font-medium transition-colors">Berita Terkini</a>
-            </nav>
-            <a href="#menu" className="bg-[#8E5E3D] hover:bg-[#724A2F] text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-sm inline-block">
-              Pesan Sekarang
+            <a href="/" className="flex items-center">
+              <img src="/Jiwa-Group-Logo_JJ-PURPLE.png" alt="Jiwa Group Logo" className="h-9 w-auto object-contain" />
             </a>
+            <nav className="hidden md:flex gap-8 ml-auto">
+              <a href="#cerita" className="text-sm font-bold text-[#222222] hover:text-[#FF3548] uppercase tracking-wide transition-colors">Brand Kami</a>
+              <a href="#menu" className="text-sm font-bold text-[#222222] hover:text-[#FF3548] uppercase tracking-wide transition-colors">Produk Kami</a>
+              <a href="#berita" className="text-sm font-bold text-[#222222] hover:text-[#FF3548] uppercase tracking-wide transition-colors">Berita Terkini</a>
+            </nav>
           </div>
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-[#F2E8DB]">
-        <div className="absolute inset-0 z-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#8E5E3D 2px, transparent 2px)', backgroundSize: '30px 30px' }}></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col-reverse lg:flex-row items-center pt-16 pb-24 gap-12">
-            <div className="flex-1 text-center lg:text-left">
-              <h1 className="text-5xl lg:text-7xl font-extrabold text-[#3D2C23] leading-tight mb-6">
-                Kopi Dari Hati,<br />
-                <span className="text-[#8E5E3D]">Teman Sejati.</span>
-              </h1>
-              <p className="text-xl text-[#6B503D] mb-8 max-w-2xl mx-auto lg:mx-0">
-                Menyajikan secangkir kopi dengan biji pilihan terbaik Nusantara. Dirancang untuk menemani setiap langkah dan ceritamu setiap hari.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <a href="#menu" className="bg-[#8E5E3D] hover:bg-[#724A2F] text-white px-8 py-4 rounded-full font-semibold text-lg transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#8E5E3D]/30">
-                  Lihat Menu Kopi <ArrowRight className="w-5 h-5" />
-                </a>
-                <a href="#berita" className="bg-white hover:bg-[#FAF6F0] text-[#8E5E3D] border-2 border-[#8E5E3D] px-8 py-4 rounded-full font-semibold text-lg transition-all flex items-center justify-center">
-                  Berita Terkini
-                </a>
-              </div>
-            </div>
-            <div className="flex-1 relative">
-              <div className="w-72 h-72 sm:w-96 sm:h-96 bg-[#8E5E3D] rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20 blur-3xl"></div>
-              {/* Dummy illustration image to replace with actual coffee cup */}
-              <img 
-                src="https://images.unsplash.com/photo-1559525839-b184a4d698c7?q=80&w=1000&auto=format&fit=crop" 
-                alt="Kopi Janji Jiwa" 
-                className="relative z-10 bg-white rounded-2xl shadow-2xl object-cover w-full max-w-md mx-auto aspect-[4/5] object-center p-2"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Hero Section Carousel */}
+      <HeroCarousel />
 
       {/* Cerita / Tentang Section */}
       <section id="cerita" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-[#3D2C23]">Janji Jiwa & Filosofi Kami</h2>
-            <div className="w-24 h-1 bg-[#8E5E3D] mx-auto rounded-full"></div>
-            <p className="mt-6 text-[#6B503D] max-w-3xl mx-auto text-lg leading-relaxed">
-              Kami berdiri karena kecintaan pada kopi lokal Indonesia dan keinginan untuk memberikan rasa yang bisa dinikmati semua kalangan. Dari petani lokal ke cangkir Anda, ini adalah janji kami kepada jiwa penikmat kopi Nusantara.
-            </p>
+            <h2 className="text-3xl font-black mb-4 text-[#222222]">Brand Kami</h2>
+            <div className="w-12 h-[2px] bg-[#FF3548] mx-auto"></div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-12 mt-12">
+          <div className="grid md:grid-cols-3 gap-8 mt-12">
             {[
               {
-                icon: <Award className="w-10 h-10 text-[#8E5E3D]" />,
-                title: "Kopi Terbaik",
-                desc: "Diambil dari perkebunan kopi di seluruh Indonesia, disangrai presisi untuk karakter rasa terbaik."
+                logo: (
+                  <div className="flex items-center justify-center h-48 mb-4">
+                    <img src="/logo-jiwa.png" alt="Janji Jiwa Logo" className="max-h-full max-w-full object-contain hover:scale-105 transition-transform duration-300" />
+                  </div>
+                ),
+                title: "Janji Jiwa",
+                desc: "Your daily pick for good coffee and even better vibes."
               },
               {
-                icon: <Users className="w-10 h-10 text-[#8E5E3D]" />,
-                title: "Petani Lokal",
-                desc: "Komitmen kami memberdayakan dan memajukan petani kopi Nusantara demi rantai kopi berkelanjutan."
+                logo: (
+                  <div className="flex items-center justify-center h-48 mb-4">
+                    <img src="/logo-sejuta-jiwa.png" alt="Kopi Sejuta Jiwa Logo" className="max-h-full max-w-full object-contain hover:scale-105 transition-transform duration-300" />
+                  </div>
+                ),
+                title: "Kopi Sejuta Jiwa",
+                desc: "Great coffee on a cart, good vibes on the go."
               },
               {
-                icon: <Coffee className="w-10 h-10 text-[#8E5E3D]" />,
-                title: "Racikan Konsisten",
-                desc: "Diseduh dengan SOP standar didukung kru hebat, memastikan rasa yang selalu pas kapanpun kamu pesan."
+                logo: (
+                  <div className="flex items-center justify-center h-48 mb-4">
+                    <img src="/logo-jiwa-culture.png" alt="Janji Jiwa Culture Logo" className="max-h-full max-w-full object-contain hover:scale-105 transition-transform duration-300" />
+                  </div>
+                ),
+                title: "Janji Jiwa Culture",
+                desc: "Your lifestyle space for coffee, community, and good vibes."
               }
             ].map((item, idx) => (
-              <div key={idx} className="bg-[#FDFBF7] p-8 rounded-3xl border border-[#E6D5C3] text-center hover:shadow-xl transition-all hover:-translate-y-2 duration-300">
-                <div className="w-20 h-20 bg-[#F2E8DB] rounded-full flex items-center justify-center mx-auto mb-6">
-                  {item.icon}
+              <div key={idx} className="bg-white p-8 border border-gray-200 shadow-sm flex flex-col h-full hover:shadow-xl transition-all duration-300">
+                {item.logo}
+                <div className="flex-1 flex flex-col pt-4">
+                  <h3 className="text-lg font-black mb-3 text-[#222222]">{item.title}</h3>
+                  <p className="text-gray-500 leading-relaxed text-sm flex-1">{item.desc}</p>
+                  <a href="#" className="font-bold text-xs flex items-center text-[#222222] hover:text-[#FF3548] transition-colors mt-8 group uppercase tracking-widest">
+                    SEE DETAIL <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </a>
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-[#3D2C23]">{item.title}</h3>
-                <p className="text-[#6B503D] leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -103,106 +78,102 @@ export default function Home() {
       </section>
 
       {/* Menu Unggulan Section */}
-      <section id="menu" className="py-24 bg-[#3D2C23]">
+      <section id="menu" className="py-24 bg-[#FDFBF7]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-[#FDFBF7]">Kopi Favorit Jiwa</h2>
-            <div className="w-24 h-1 bg-[#8E5E3D] mx-auto rounded-full"></div>
-            <p className="mt-6 text-[#E6D5C3] max-w-2xl mx-auto text-lg">
+            <h2 className="text-3xl font-black mb-4 text-[#222222]">Menu Favorit Jiwa</h2>
+            <div className="w-12 h-[2px] bg-[#FF3548] mx-auto"></div>
+            <p className="mt-6 text-gray-600 max-w-2xl mx-auto text-lg">
               Pilihan menu andalan yang paling banyak dipesan karena rasanya yang khas, cocok buat menemani hari-harimu.
             </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { name: "Kopi Susu", desc: "Espresso, susu, gula aren murni", img: "https://images.unsplash.com/photo-1593443320739-77f74939d0da?q=80&w=800&auto=format&fit=crop" },
-              { name: "Susu Soklat", desc: "Susu segar dengan cokelat premium", img: "https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?q=80&w=800&auto=format&fit=crop" },
-              { name: "Americano", desc: "Double shot espresso & air", img: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=800&auto=format&fit=crop" },
-              { name: "Jiwa Toast", desc: "Roti panggang dengan isian gurih", img: "https://images.unsplash.com/photo-1525351484163-f5ce7e56d5c1?q=80&w=800&auto=format&fit=crop" }
+              { name: "Kopi Susu Sejuta Jiwa", desc: "Espresso, susu, gula aren murni", img: "/kopisusu-sejuta-jiwa.jpeg" },
+              { name: "Es Coklat", desc: "Susu segar dengan cokelat premium", img: "/es-coklat.jpeg" },
+              { name: "Peach Americano", desc: "Kesegaran kopi dengan manis peach", img: "/peach-americano.jpeg" },
+              { name: "Jiwa Toast", desc: "Roti panggang dengan isian gurih", img: "/jiwa-toast.jpeg" }
             ].map((menu, idx) => (
-              <div key={idx} className="bg-[#2D201A] rounded-3xl overflow-hidden hover:-translate-y-2 transition-transform duration-300">
-                <img src={menu.img} alt={menu.name} className="w-full h-56 object-cover" />
+              <div key={idx} className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden hover:shadow-xl transition-all hover:-translate-y-1 duration-300 group">
+                <div className="relative h-56 overflow-hidden">
+                  <img src={menu.img} alt={menu.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-2">{menu.name}</h3>
-                  <p className="text-[#A48F82] text-sm">{menu.desc}</p>
+                  <h3 className="text-lg font-bold text-[#222222] mb-1">{menu.name}</h3>
+                  <p className="text-gray-500 text-sm">{menu.desc}</p>
                 </div>
               </div>
             ))}
-          </div>
-          
-          <div className="mt-12 text-center">
-             <a href="#menu" className="inline-block border border-[#8E5E3D] text-[#8E5E3D] hover:bg-[#8E5E3D] hover:text-white px-8 py-3 rounded-full font-semibold transition-colors">
-               Lihat Semua Menu
-             </a>
           </div>
         </div>
       </section>
 
       {/* Berita Terkini Section */}
-      <section id="berita" className="py-24 bg-[#FDFBF7]">
+      <section id="berita" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-[#3D2C23]">Terbaru dari Jiwa Group</h2>
-            <div className="w-24 h-1 bg-[#8E5E3D] mx-auto rounded-full"></div>
+            <h2 className="text-3xl font-black mb-4 text-[#222222]">Terbaru dari Jiwa Group</h2>
+            <div className="w-12 h-[2px] bg-[#FF3548] mx-auto"></div>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                title: "Jiwa Barista Championship 2025: Panggung Besar untuk Barista Janji Jiwa Berkarya, Bertumbuh, dan Move in Good Vibes",
+                title: "Jiwa Barista Championship 2025: Panggung Besar untuk Barista Janji Jiwa Berkarya...",
                 date: "2025/11/27 - 10:36:31am",
-                desc: "Janji Jiwa melalui Jiwa Group kembali menghadirkan Jiwa Barista Championship 2025, kompetisi internal berskala nasional yang menjadi ruang bagi para barista untuk mengasah kemampuan, mengekspresikan kreativitas, dan memperkuat passion di dunia kopi.",
-                img: "https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=800&auto=format&fit=crop"
+                desc: "Janji Jiwa melalui Jiwa Group kembali menghadirkan Jiwa Barista Championship 2025, kompetisi internal berskala nasional yang menjadi ruang bagi para barista...",
+                img: "/berita-barista.jpeg"
               },
               {
                 title: "Janji Jiwa Culture: Tempat Baru untuk Hidupkan Good Vibes Sehari-hari",
                 date: "2025/09/10 - 07:42:19pm",
-                desc: "Janji Jiwa Culture bukan sekadar tempat ngopi. Ini adalah House of Good Vibes, tempat di mana kopi bukan satu-satunya hal yang diseduh, tapi juga percakapan, ide, bahkan tawa yang muncul tiba-tiba di tengah sore yang sibuk.",
-                img: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=800&auto=format&fit=crop"
+                desc: "Janji Jiwa Culture bukan sekadar tempat ngopi. Ini adalah House of Good Vibes, tempat di mana kopi bukan satu-satunya hal yang diseduh, tapi juga percakapan, ide, bahkan tawa...",
+                img: "/berita-culture.jpeg"
               },
               {
-                title: "Biobriket dari Ampas Kopi: Solusi Inovatif untuk Energi Terbarukan dan Pengelolaan Limbah dari Janji Jiwa",
+                title: "Biobriket dari Ampas Kopi: Solusi Inovatif untuk Energi Terbarukan",
                 date: "2024/08/01 - 02:01:33pm",
                 desc: "Ampas kopi Janji Jiwa memiliki potensi besar untuk dijadikan salah satu bahan baku pembuatan bahan bakar alternatif yang ramah lingkungan.",
-                img: "https://images.unsplash.com/photo-1550989460-0adf9ea622e2?q=80&w=800&auto=format&fit=crop"
+                img: "/berita-biobriket.jpeg"
               }
             ].map((news, idx) => (
-              <div key={idx} className="flex flex-col h-full bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all border border-[#E6D5C3]">
-                <div className="h-56 overflow-hidden border-b-4 border-[#E22E30]">
+              <div key={idx} className="flex flex-col h-full bg-white border border-gray-200 shadow-sm hover:shadow-xl transition-all">
+                <div className="h-56 overflow-hidden border-b-[3px] border-[#FF3548]">
                   <img src={news.img} alt={news.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-6 flex flex-col flex-1">
-                  <p className="text-sm text-[#A48F82] mb-3">{news.date}</p>
-                  <h3 className="text-lg font-bold text-[#3D2C23] mb-4 leading-snug">{news.title}</h3>
-                  <p className="text-[#6B503D] text-sm leading-relaxed mb-6 flex-1 line-clamp-4">{news.desc}</p>
-                  <a href="#" className="text-[#3D2C23] font-bold text-sm flex items-center hover:text-[#E22E30] transition-colors uppercase tracking-wider mt-auto group">
+                  <p className="text-xs text-gray-400 mb-3">{news.date}</p>
+                  <h3 className="text-base font-black text-[#222222] mb-3 leading-snug">{news.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-1 line-clamp-3">{news.desc}</p>
+                  <a href="#" className="text-[#222222] font-black text-xs flex items-center hover:text-[#FF3548] transition-colors uppercase tracking-widest mt-auto group">
                     SEE DETAIL <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </a>
                 </div>
               </div>
             ))}
           </div>
-
-          <div className="mt-14 text-center">
-            <a href="#" className="inline-block border-2 border-[#3D2C23] text-[#3D2C23] hover:bg-[#3D2C23] hover:text-white px-10 py-3 font-bold transition-colors uppercase text-sm tracking-wider">
-              selengkapnya
-            </a>
-          </div>
         </div>
       </section>
 
       {/* Partnership CTA Section */}
-      <section className="py-24 bg-[#8E5E3D] relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=2000&auto=format&fit=crop')] opacity-10 bg-cover bg-center mix-blend-overlay"></div>
+      <section className="py-24 bg-[#2D1636] relative overflow-hidden">
+        <div 
+          className="absolute inset-0 opacity-10"
+          style={{ 
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 1000 1000' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 200c50-20 100 30 150 10s100-80 200-50 150 100 250 80 150-120 250-100 150 60 150 60M0 400c80 30 150-50 250-20s150 100 300 50 200-150 350-100 100 80 100 80M0 600c100-40 200 60 300 20s200-120 400-80 300 150 300 150M0 800c120 50 250-80 400-30s250 150 450 100 150-50 150-50' stroke='white' fill='none' stroke-width='2' opacity='0.5'/%3E%3Cpath d='M-50 100c60-30 120 40 180 20s120-100 240-60 180 120 300 100 180-140 300-120 180 80 180 80M-50 300c100 40 180-60 300-20s180 120 360 60 240-180 420-120 120 100 120 100M-50 500c120-50 240 80 360 30s240-140 480-100 360 180 360 180M-50 700c140 60 300-100 480-40s300 180 540 120 200-60 200-60' stroke='white' fill='none' stroke-width='1' opacity='0.3'/%3E%3C/svg%3E")`,
+            backgroundSize: '1000px 1000px'
+          }}
+        ></div>
         
         <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-center">
-          <div className="w-24 h-1 bg-[#FDFBF7] mx-auto rounded-full mb-8 opacity-60"></div>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6">Let's become our partner!</h2>
-          <p className="text-xl text-[#FDFBF7]/90 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Be part of Jiwa Group family. Growing together advancing F&B industry<br className="hidden sm:block" /> in Indonesia.
+          <div className="w-12 h-[3px] bg-[#FF3548] mx-auto mb-6"></div>
+          <h2 className="text-3xl md:text-4xl font-black text-white mb-4 uppercase tracking-tight">Let's become our partner!</h2>
+          <p className="text-lg text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed">
+            Be part of Jiwa Group family. Growing together advancing F&B industry in Indonesia.
           </p>
           <div className="flex justify-center">
-            <a href="#" className="bg-white text-[#8E5E3D] px-10 py-4 rounded-full font-bold text-lg hover:bg-[#FAF6F0] transition-all shadow-xl hover:-translate-y-1">
+            <a href="#" className="bg-[#FF4D4D] text-white px-10 py-3 font-bold text-lg hover:bg-white hover:text-[#2D1636] transition-all shadow-lg uppercase tracking-wider">
               More Info
             </a>
           </div>
@@ -210,36 +181,64 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#1A120E] pt-16 pb-8 border-t border-[#3D2C23]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-8 border-b border-[#3D2C23] pb-12 mb-8">
-            <div className="flex flex-col gap-4 text-center md:text-left">
-              <div className="flex items-center gap-3 justify-center md:justify-start">
-                <Coffee className="text-[#8E5E3D] w-8 h-8" />
-                <span className="text-2xl font-bold text-white">Janji Jiwa</span>
+      <footer className="bg-white pt-16 border-t border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+          <div className="flex flex-col lg:flex-row justify-between gap-12">
+            {/* Left section */}
+            <div className="lg:w-1/2">
+              <a href="/" className="inline-block mb-4">
+                <img src="/Jiwa-Group-Logo_JJ-PURPLE.png" alt="Jiwa Group Logo" className="h-14 w-auto object-contain" />
+              </a>
+              <div className="w-12 h-[2px] bg-[#FF3548] mb-6"></div>
+              <p className="text-[#222222] text-sm mb-8">PT Luna Boga Narayan</p>
+
+              <h4 className="font-bold text-[#222222] mb-4">Contact Us</h4>
+              <button className="bg-[#FF3548] text-white px-8 py-2.5 font-bold border border-[#222222] mb-12 w-fit pointer-events-none cursor-default">
+                Jiwa Care
+              </button>
+
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                <span className="font-bold text-[#222222] sm:mr-4">Follow us on</span>
+                <div className="flex gap-4">
+                  <div className="flex items-center justify-center gap-2 border border-[#222222] px-4 py-2 w-fit opacity-50 cursor-default">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                    <span className="font-bold text-sm">Youtube</span>
+                  </div>
+                  <div className="flex items-center justify-center gap-2 border border-[#222222] px-4 py-2 w-fit opacity-50 cursor-default">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    <span className="font-bold text-sm">Instagram</span>
+                  </div>
+                </div>
               </div>
-              <p className="text-[#A48F82] max-w-xs">Kopi Dari Hati, untuk menemani langkah sejuta jiwa.</p>
             </div>
-            
-            <div className="flex gap-12 text-[#A48F82] flex-wrap justify-center md:justify-end">
-              <div className="flex flex-col gap-3 text-center md:text-left">
-                <span className="font-semibold text-white mb-2">Perusahaan</span>
-                <a href="#" className="hover:text-white transition-colors">Kisah Jiwa</a>
-                <a href="#" className="hover:text-white transition-colors">Karir</a>
-                <a href="#" className="hover:text-white transition-colors">Kerja Sama Jiwa</a>
+
+            {/* Right section grids */}
+            <div className="flex flex-col sm:flex-row gap-16 lg:w-1/2 lg:justify-end">
+              <div className="flex flex-col gap-5">
+                <h4 className="font-black text-[#222222] text-base tracking-wide mb-1 uppercase">BRAND</h4>
+                <span className="text-[#222222] text-sm cursor-default">Janji Jiwa Culture</span>
+                <span className="text-[#222222] text-sm cursor-default">Kopi Sejuta Jiwa</span>
+                <span className="text-[#222222] text-sm cursor-default">Janji Jiwa</span>
               </div>
-              <div className="flex flex-col gap-3 text-center md:text-left">
-                <span className="font-semibold text-white mb-2">Bantuan</span>
-                <a href="#" className="hover:text-white transition-colors">Hubungi Kami</a>
-                <a href="#" className="hover:text-white transition-colors">FAQ (Tanya Jawab)</a>
-                <a href="#" className="hover:text-white transition-colors">Kebijakan Privasi</a>
+              <div className="flex flex-col gap-4">
+                <h4 className="font-black text-[#222222] text-base tracking-wide mb-1 uppercase">JIWA+</h4>
+                <p className="font-bold text-[#222222] text-sm">Download Now</p>
+                <div className="flex flex-col gap-3">
+                  <div className="opacity-50 cursor-default">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on App Store" className="h-10 w-auto" />
+                  </div>
+                  <div className="opacity-50 cursor-default whitespace-nowrap">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" className="h-10 w-auto" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          
-          <div className="text-center text-[#A48F82] text-sm">
-            <p>&copy; {new Date().getFullYear()} Jiwa Group. All rights reserved.</p>
-          </div>
+        </div>
+        
+        {/* Bottom bar */}
+        <div className="bg-[#Fdfbf7] py-6 text-center border-t border-gray-200">
+          <p className="text-[#222222] text-sm">&copy; {new Date().getFullYear()} Jiwa Group. All rights reserved.</p>
         </div>
       </footer>
     </div>
